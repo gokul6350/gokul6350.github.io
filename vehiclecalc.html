@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label, input, button, p {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reverse Calculator</h1>
+    <label for="torque">Torque (Nm)</label>
+    <input type="number" id="torque" step="any">
+
+    <label for="rpm">RPM</label>
+    <input type="number" id="rpm" step="any">
+
+    <label for="wheel_diameter">Wheel Diameter (mm)</label>
+    <input type="number" id="wheel_diameter" step="any">
+
+    <label for="number_of_motors">Number of Motors</label>
+    <input type="number" id="number_of_motors" step="1" min="1">
+
+    <button onclick="updateValues()">Calculate</button>
+
+    <p id="speed_mps">Speed: 0.00 m/s</p>
+    <p id="speed_kmph">Speed: 0.00 km/h</p>
+    <p id="weight_capacity">Weight Capacity: 0.00 kg</p>
+
+    <script>
+        function calculateSpeedAndWeightCapacity(torque, rpm, wheel_diameter, number_of_motors) {
+            const radius = wheel_diameter / 2 / 1000;
+            const rps = rpm / 60;
+            const circumference = 2 * Math.PI * radius;
+            const speed_mps = rps * circumference;
+            const speed_kmph = speed_mps * 3.6;
+            const force_per_motor = torque / radius;
+            const total_force = force_per_motor * number_of_motors;
+            const g = 9.81;
+            const weight_capacity = total_force / g;
+
+            return [speed_mps, speed_kmph, weight_capacity];
+        }
+
+        function updateValues() {
+            const torque = parseFloat(document.getElementById('torque').value);
+            const rpm = parseFloat(document.getElementById('rpm').value);
+            const wheel_diameter = parseFloat(document.getElementById('wheel_diameter').value);
+            const number_of_motors = parseInt(document.getElementById('number_of_motors').value);
+
+            if (isNaN(torque) || isNaN(rpm) || isNaN(wheel_diameter) || isNaN(number_of_motors)) {
+                alert('Please enter valid numbers.');
+                return;
+            }
+
+            const [speed_mps, speed_kmph, weight_capacity] = calculateSpeedAndWeightCapacity(torque, rpm, wheel_diameter, number_of_motors);
+
+            document.getElementById('speed_mps').textContent = `Speed: ${speed_mps.toFixed(2)} m/s`;
+            document.getElementById('speed_kmph').textContent = `Speed: ${speed_kmph.toFixed(2)} km/h`;
+            document.getElementById('weight_capacity').textContent = `Weight Capacity: ${weight_capacity.toFixed(2)} kg`;
+        }
+    </script>
+</body>
+</html>
