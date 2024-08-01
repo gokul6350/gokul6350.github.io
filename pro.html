@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gokulbarath - Mechatronics Engineer</title>
+        <style>
+            @font-face {
+                font-family: "primefont";
+                src: url("fonts/1.woff2") format("woff2");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #1a1a1a;
+                color: #ffffff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0;
+            }
+
+            .logo {
+                font-size: 24px;
+                font-weight: bold;
+                animation: slide-up 0.5s ease-out;
+            }
+
+            nav ul {
+                list-style-type: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin-left: 20px;
+                animation: slide-up 0.5s ease-out 0.1s;
+            }
+
+            nav ul li a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            .main-content {
+                text-align: left;
+                padding: 50px 0;
+            }
+
+            h1 {
+                font-size: 2rem; /* Default font size for smaller screens */
+                margin-bottom: 20px;
+                animation: slide-up 0.5s ease-out 0.2s;
+            }
+
+            @media (min-width: 640px) {
+                h1 {
+                    font-size: 2.5rem; /* Font size for medium screens */
+                }
+            }
+
+            @media (min-width: 1024px) {
+                h1 {
+                    font-size: 5rem; /* Font size for larger screens */
+                }
+            }
+
+            .description {
+                max-width: 600px;
+                margin-bottom: 30px;
+                animation: slide-up 0.5s ease-out 0.3s;
+            }
+
+            .typing-animation {
+                display: inline-block;
+                border-right: 2px solid #ffffff;
+                white-space: nowrap;
+                overflow: hidden;
+                animation:
+                    typing 8s steps(30, end) infinite,
+                    blink-caret 0.75s step-end infinite;
+            }
+
+            @keyframes typing {
+                0%,
+                25% {
+                    width: 0;
+                }
+                50%,
+                75% {
+                    width: 12ch; /* Adjust based on the length of your text */
+                }
+                100% {
+                    width: 0;
+                }
+            }
+
+            @keyframes blink-caret {
+                from,
+                to {
+                    border-color: transparent;
+                }
+                50% {
+                    border-color: white;
+                }
+            }
+            .social-links a {
+                color: #ffffff;
+                margin-right: 20px;
+                text-decoration: none;
+                display: inline-block;
+                animation: slide-up 0.5s ease-out 0.4s;
+            }
+
+            .social-links img {
+                width: 24px;
+                height: 24px;
+                vertical-align: middle;
+            }
+
+            .contribution-graph {
+                margin-top: 50px;
+                animation: slide-up 0.5s ease-out 0.5s;
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                nav ul {
+                    margin-top: 20px;
+                }
+
+                h1 {
+                    font-size: 28px;
+                }
+            }
+
+            /* Slide up animation */
+            @keyframes slide-up {
+                from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="logo">Gokul</div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#photos">Photos</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main class="main-content" style="padding-top: 100px">
+                <h1
+                    style="
+                        font-family: &quot;primefont&quot;, Arial, sans-serif;
+                    "
+                >
+                    A passionate Robotics,<br />
+                    <span class="typing-animation">AI, ML developer G </span>
+                </h1>
+                <p class="description" style="color: rgb(161 161 170)">
+                    I'm Gokulbarath, with a background in fine-tuning and
+                    utilizing LLMs for controlling robots and other
+                    applications. I'm passionate about integrating AI, NLP, and
+                    robotics to create innovative solutions.
+                </p>
+                <div class="social-links">
+                    <a href="#"
+                        ><img src="icons/github.png" alt="GitHub" /> GitHub</a
+                    >
+                    <a href="#"><img src="icons/twitter.png" alt="X" /> X</a>
+                    <a href="#"
+                        ><img src="icons/linkedin.png" alt="LinkedIn" />
+                        LinkedIn</a
+                    >
+                    <a href="#"
+                        ><img src="icons/instagram.png" alt="Instagram" />
+                        Instagram</a
+                    >
+                </div>
+                <div class="icon-container">
+                    <h2>Tech Stack:</h2>
+                    <a
+                        href="https://www.arduino.cc/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg"
+                            alt="Arduino"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://www.gnu.org/software/bash/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg"
+                            alt="Bash"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://www.cprogramming.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg"
+                            alt="C"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://www.w3schools.com/cpp/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg"
+                            alt="C++"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://flask.palletsprojects.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg"
+                            alt="Flask"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://cloud.google.com"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg"
+                            alt="GCP"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://www.linux.org/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg"
+                            alt="Linux"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://www.mathworks.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png"
+                            alt="Matlab"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://opencv.org/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg"
+                            alt="OpenCV"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://pandas.pydata.org/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg"
+                            alt="Pandas"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://www.python.org"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                            alt="Python"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://scikit-learn.org/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                            alt="Scikit Learn"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                    <a
+                        href="https://www.tensorflow.org"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg"
+                            alt="TensorFlow"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                </div>
+            </main>
+
+            <section class="contribution-graph">
+                <h2>Contribution Graph</h2>
+                <!-- You would need to implement or integrate a graph here -->
+            </section>
+        </div>
+    </body>
+</html>
