@@ -39,21 +39,24 @@
                 animation: slide-up 0.5s ease-out;
             }
 
-            nav ul {
-                list-style-type: none;
+            .dynamic-island {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #333;
+                border-radius: 30px;
+                padding: 10px 20px;
                 display: flex;
-                margin: 0;
-                padding: 0;
+                gap: 20px;
+                z-index: 1000;
+                animation: slide-up 0.5s ease-out;
             }
 
-            nav ul li {
-                margin-left: 20px;
-                animation: slide-up 0.5s ease-out 0.1s;
-            }
-
-            nav ul li a {
+            .dynamic-island a {
                 color: #ffffff;
                 text-decoration: none;
+                font-size: 16px;
             }
 
             .main-content {
@@ -132,7 +135,7 @@
                 vertical-align: middle;
             }
 
-            .contribution-graph {
+            .icon-container {
                 margin-top: 50px;
                 animation: slide-up 0.5s ease-out 0.5s;
             }
@@ -141,10 +144,6 @@
                 header {
                     flex-direction: column;
                     align-items: flex-start;
-                }
-
-                nav ul {
-                    margin-top: 20px;
                 }
 
                 h1 {
@@ -167,17 +166,18 @@
     </head>
     <body>
         <div class="container">
+            <!--
             <header>
                 <div class="logo">Gokul</div>
-                <nav>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#photos">Photos</a></li>
-                    </ul>
-                </nav>
-            </header>
+            </header> -->
+
+            <div class="dynamic-island">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#blog">Blog</a>
+                <a href="#photos">Photos</a>
+               
+            </div>
 
             <main class="main-content" style="padding-top: 100px">
                 <h1
@@ -192,8 +192,9 @@
                     I'm Gokulbarath, with a background in fine-tuning and
                     utilizing LLMs for controlling robots and other
                     applications. I'm passionate about integrating AI, NLP, and
-                    robotics to create innovative solutions.
+                    robotics .
                 </p>
+                 <img src="https://02ip.ru/1v4y85.png" />
                 <div class="social-links">
                     <a href="#"
                         ><img src="icons/github.png" alt="GitHub" /> GitHub</a
@@ -368,11 +369,6 @@
                     </a>
                 </div>
             </main>
-
-            <section class="contribution-graph">
-                <h2>Contribution Graph</h2>
-                <!-- You would need to implement or integrate a graph here -->
-            </section>
         </div>
     </body>
 </html>
