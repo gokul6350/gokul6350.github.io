@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Currently Cooking</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #1a1a1a;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 30px;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .card {
+                background-color: #2a2a2a;
+                border-radius: 10px;
+                padding: 20px;
+                width: 200px;
+                text-align: center;
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+                /* Remove the initial opacity: 0; */
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            }
+
+            .card img {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 10px;
+            }
+
+            .card h2 {
+                margin: 0;
+                font-size: 1.2em;
+            }
+
+            .card p {
+                font-size: 0.9em;
+                color: #bbb;
+            }
+
+            #flame {
+                display: inline-block;
+                font-size: 1.5em;
+                animation: flicker 0.5s infinite alternate;
+            }
+
+            @keyframes flicker {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0.5;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>‎ ‎ Currently cooking <span id="flame">🔥</span></h1>
+        <div class="container">
+            <div class="card">
+                <img src="icons/armlm.png" alt="ARM LM" />
+                <h2>ARM LM</h2>
+                <p>A LLM Controlled robotic arm</p>
+            </div>
+            <div class="card">
+                <img src="icons/autonomx.png" alt="AUTONOMX" />
+                <h2>AUTONOMX</h2>
+                <p>ROS POWERED AVS</p>
+            </div>
+            <div class="card">
+                <img src="icons/lamx.png" alt="LAMX" />
+                <h2>LAMX</h2>
+                <p>A Voice controlled copilot can do anything in the system</p>
+            </div>
+        </div>
+        <p><a href="https://www.w3schools.com/">More at</a></p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <script>
+            // Fade in animation for cards
+            gsap.from(".card", {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                stagger: 0.2,
+                ease: "power2.out",
+            });
+
+            // Typing animation for the title
+            const title = "Currently cooking";
+            let i = 0;
+            const speed = 100;
+
+            function typeWriter() {
+                if (i < title.length) {
+                    document.querySelector("h1").innerHTML =
+                        title.substring(0, i + 1) +
+                        ' <span id="flame">🔥</span>';
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+
+            window.onload = typeWriter;
+
+            // Background particle animation
+            const canvas = document.createElement("canvas");
+            document.body.appendChild(canvas);
+            canvas.style.position = "fixed";
+            canvas.style.top = "0";
+            canvas.style.left = "0";
+            canvas.style.zIndex = "-1";
+
+            const ctx = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 100;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 3 - 1.5;
+                    this.speedY = Math.random() * 3 - 1.5;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.size > 0.2) this.size -= 0.1;
+                }
+                draw() {
+                    ctx.fillStyle = "white";
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function init() {
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    if (particles[i].size <= 0.2) {
+                        particles.splice(i, 1);
+                        i--;
+                        particles.push(new Particle());
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            init();
+            animate();
+        </script>
+    </body>
+</html>
